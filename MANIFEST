@@ -1,0 +1,11 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/SWISH-API-Remote.t
+Remote.pm
+Remote/Result.pm
+Remote/Results.pm
+Remote/FunctionGenerator.pm
+swishedsearch
+META.yml                                 Module meta-data (added by MakeMaker)
