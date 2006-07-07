@@ -1,7 +1,11 @@
 package SWISH::API::Remote::FunctionGenerator;
-# if passed 'YourPackage', 'data1', 'data2', makes 
-# accessors YourPackage::Data1() and YourPackage::Data2()
-# that get and set the object's fields
+
+############################################
+# makeaccessors( 'packagename', 'fieldname', ['fieldname'...])
+#  makes functions called fieldname() and fieldname2() in the package 'packagename'
+#  which will create functions to get/set, ie, 
+#  $self->fieldname() and $self->fieldname( "value" )
+# returns nothing useful
 sub makeaccessors {
 	my ($package, @list) = @_;
 	for my $f (@list) {
@@ -10,7 +14,9 @@ sub makeaccessors {
 		my $acc = "package $package; sub $fu { ";
 		$acc .= "my \$self = shift; return \$self->{$f} unless (\@_); \$self->{$f} = shift; }; ";
 		#warn "\n$acc\n";
-		eval $acc ;
+        
+		eval $acc;
+
 		die "Failed to create function $package::$f: $@" if $@;
 	} 
 }

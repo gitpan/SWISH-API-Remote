@@ -5,13 +5,14 @@ use ExtUtils::MakeMaker;
 # the contents of the Makefile that is written.
 WriteMakefile(
     NAME              => 'SWISH::API::Remote',
-    VERSION_FROM      => 'Remote.pm', # finds $VERSION
+    VERSION_FROM      => 'lib/SWISH/API/Remote.pm', # finds $VERSION
     PREREQ_PM         => {   # e.g., Module::Name => 1.1
 			URI::Escape => 0,
 			LWP::UserAgent => 0,
 			}, 
-	EXE_FILES		=> [ 'swishedsearch' ],	# this will get installed in, ie, /usr/bin
+	#EXE_FILES		=> [ 'example/swishedsearch' ],	# this will get installed in, ie, /usr/bin
+	# don't install any exes
     ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
-      (ABSTRACT_FROM  => 'Remote.pm', # retrieve abstract from module
-       AUTHOR         => 'joshr <joshr@localdomain>') : ()),
+      (ABSTRACT_FROM  => 'lib/SWISH/API/Remote.pm', # retrieve abstract from module
+       AUTHOR         => 'joshr <joshr.com>') : ()),
 );
